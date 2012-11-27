@@ -6,7 +6,6 @@ class CloudFoundryApp(object):
     created = 0
     debug = None
     version = 0
-    name = ""
     running_instances = 0
     services = []
     state = ""
@@ -15,7 +14,7 @@ class CloudFoundryApp(object):
     def __init__(self, name, env=None, instances=None, meta=None, created=None, debug=None, version=None,
                  runningInstances=None, services=None, state=None, uris=None, staging=None, resources=None,
                  interface=None):
-        self.name = name
+        self._name = name
         self.environment_variables = env
         self.instances = instances
         self.meta = meta
@@ -27,6 +26,10 @@ class CloudFoundryApp(object):
         self.state = state
         self.uris = uris
         self.interface = interface
+
+    @property
+    def name(self):
+        return self._name
 
     @staticmethod
     def from_dict(dict, interface=None):

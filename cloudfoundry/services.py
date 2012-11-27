@@ -3,7 +3,6 @@
 class CloudFoundryService(object):
 
     meta = {}
-    name = ''
     properties = {}
     provider = ''
     tier = ''
@@ -13,7 +12,7 @@ class CloudFoundryService(object):
 
     def __init__(self, name, meta=None, properties=None, provider=None, tier=None, type=None, vendor=None,
                  version=None, interface=None):
-        self.name = name
+        self._name = name
         self.meta = meta
         self.properties = properties
         self.provider = provider
@@ -22,6 +21,10 @@ class CloudFoundryService(object):
         self.vendor = vendor
         self.version = version
         self.interface = interface
+
+    @property
+    def name(self):
+        return self._name
 
     @staticmethod
     def from_dict(dict, interface=None):
