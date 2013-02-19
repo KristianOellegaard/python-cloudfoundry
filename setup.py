@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from setuptools import find_packages
-from cloudfoundry.version import version
 from distutils.core import setup
 
 setup(
@@ -9,7 +8,7 @@ setup(
     author_email='kristian@oellegaard.com',
     name='python-cloudfoundry',
     description='Python interface to CloudFoundry',
-    version=version,
+    version="0.3",
     url='http://www.github.com/KristianOellegaard/python-cloudfoundry/',
     license='MIT License',
     packages = find_packages(),
